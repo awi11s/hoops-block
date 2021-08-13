@@ -1,13 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.6;
 
-// SAME AS 4BEAT EXCEPT WANT TO TEST IF THIS WOULD BE EASIER TO STORE EACH POST IN A STRUCT
-// THEN AFTER 48 HOURS OR UPON BEING BANNED, A FLAG MAPPING FOR THE POST STRUCT IS SET TO FALSE
-// WHICH EMITS AN EVENT DECLARING THE POST INACTIVE AND OMMITTING IT FROM BEING VIEWED. 
-// IF IT'S POSSIBLE TO DROP IT OFF THE MAPPING LIST THAT WOULD BE MOST EFFICIENT I THINK
+// this contract is simply an idea for a niche community discussion board on the blockchain
+// it's very beginner but something maybe worthy of expanding on.
+
 
 contract HoopsBlock {
-    
+
     struct Post {
         address author;
         string title;
@@ -43,17 +42,20 @@ contract HoopsBlock {
         uint256 removeTime
         );
         
+    // a mapping used to index to specific posts using the author's address
     mapping(address => Post) private postsList;
+    // a list of address's used for CRUD operations
     address[] private postsIndex;
     uint256 numPosts;
 
-    
+    // function that returns true if that author already has a post up
     function isPost(address _author) external view returns (bool) {
         if (postsIndex.length == 0) return false;
         bool result = postsIndex[postsList[_author].index] == _author;
         return result;
     }
     
+    // allows author's to post, but only once per news cycle (48 hours)
     function createPost(
         address payable _author,
         string memory _title
@@ -70,16 +72,18 @@ contract HoopsBlock {
             p.index = postsIndex.length - 1;
             p.timePosted = block.timestamp;
             
+            // once post has been submitted this event is triggered
+
             emit PostSubmitted(
                     _author,
                     postsList[_author].index,
                     _title,
                     block.timestamp);
 
-            // postsIndex.push(numPosts);
             return postsIndex.length - 1;
     }
     
+    // allows users to upvote, but only once and not on their own post
     function upVote(address _author) external {
         require(_author != msg.sender, "cannot upvote your own post");
         Post storage p = postsList[_author];
@@ -91,6 +95,8 @@ contract HoopsBlock {
         
     }
     
+    // allows users to downvote posts, but only once and not on own posts
+    // once a post receives 3 downvotes, it is taken off the page.
     function downVote(address _author) external {
         require(_author != msg.sender, "cannot downvote your own post");
         Post storage p = postsList[_author];
@@ -118,10 +124,9 @@ contract HoopsBlock {
         
     }
     
+    // once a post has reached it's 48 hour shelf life, it is taken off the page to open up for a new cycle.
     function finalizePost(address _author) external {
-        // each post will have a shelf life of 48 hours
-        // I THINK ITS BETTER TO TRACK THE TIME ON THE CLIENT SIDE AND THEN CALL  THIS FUNCTION WHEN 
-        // CLIENT-SIDE TRIGGERED SO ILL GO WITH THAT 
+
         require(postsIndex[postsList[_author].index] == _author, "post has to exist to delete it");
         Post storage p = postsList[_author];
         
@@ -141,6 +146,7 @@ contract HoopsBlock {
         
     }
     
+    // a call that returns number of posts currently active
     function numberOfActivePosts() external view returns (uint256) {
         return postsIndex.length;
     }
