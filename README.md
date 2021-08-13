@@ -1,4 +1,4 @@
-<h1>Blockchain Beats: NBA Edition</h1>
+<h1>🏀 Blockchain Beats: NBA Edition 🏀</h1>
 i've tried to imagine what a social network might look like 
 on the blockchain. Especially in a niche area like old message boards. 
 
