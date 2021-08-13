@@ -1,0 +1,22 @@
+{
+  "name": "block-app",
+  "version": "1.0.0",
+  "description": "first blockchain app with front-end",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "austin wills",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "chai": "^4.3.4",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.4.4",
+    "hardhat": "^2.6.0"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  }
+}
