@@ -1,4 +1,4 @@
-<h1>🏀 Blockchain Beats: NBA Edition 🏀</h1>
+<h1> Blockchain Beats</h1>
 i've tried to imagine what a social network might look like 
 on the blockchain. Especially in a niche area like old message boards. 
 
@@ -20,6 +20,6 @@ Functions:
  
  Minimalism in smart contracts is important, so there would be other operations that would be handeled on the client-side first: word count for posts, a shelf life for each post.
 
- obviously there are a lot of flaws in this in practice, but I think the blockchain creates an opportunity for social networks of niche communities to thrive, by allowing posts to be controlled by accountability within the community.
+ obviously there are a lot of flaws with this in practice, but I think the blockchain creates an opportunity for social networks of niche communities to thrive, by allowing posts to be controlled by accountability within the community.
 
  I haven't had the time to add a front-end to it yet.
