@@ -1,7 +1,7 @@
 require("@nomiclabs/hardhat-waffle");
 const dotenv = require("dotenv");
 dotenv.config()
-const { RINKEBY_ADDRESS } = process.env;
+const { RINKEBY_ADDRESS, SEED_PHRASE } = process.env;
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -26,7 +26,8 @@ module.exports = {
       url: 'http://localhost:8545',
     },
     rinkeby: {
-      url: `https://rinkeby.infura.io/v3/${RINKEBY_ADDRESS}`
+      url: `https://rinkeby.infura.io/v3/${RINKEBY_ADDRESS}`,
+      accounts: {mnemonic: SEED_PHRASE }      
     },
 
   }
