@@ -4,7 +4,10 @@
   "description": "first blockchain app with front-end",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "dev": "next dev",
+    "build": "next start",
+    "lint": "next lint"
   },
   "author": "austin wills",
   "license": "ISC",
@@ -17,6 +20,16 @@
     "hardhat": "^2.6.0"
   },
   "dependencies": {
-    "dotenv": "^10.0.0"
+    "@chakra-ui/react": "^1.6.10",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@walletconnect/web3-provider": "^1.6.6",
+    "dotenv": "^10.0.0",
+    "framer-motion": "^4",
+    "next": "^12.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "web3": "^1.6.0",
+    "web3modal": "^1.9.4"
   }
 }
