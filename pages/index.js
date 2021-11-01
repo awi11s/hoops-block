@@ -6,7 +6,6 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 
 
 
-
 const INITIAL_STATE = {
   fetching: false,
   address: "",
@@ -117,7 +116,7 @@ export default class App extends React.Component {
       walletconnect: {
         package: WalletConnectProvider,
         options: {
-          infuraId: '452a203f1f524fc58ad49ca8e4b763c3'
+          infuraId: process.env.INFURA_ID,
         }
       }
  
@@ -218,7 +217,7 @@ export default class App extends React.Component {
         {connected ? 
             <Flex>
               <Box pg="4">
-                connected
+                connected 
               </Box>
               <Spacer />
               <Box pg="4" bg="green.400">

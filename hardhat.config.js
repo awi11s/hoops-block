@@ -23,7 +23,7 @@ module.exports = {
   solidity: "0.8.6",
   networks: {
     localhost: {
-      url: 'http://localhost:8545',
+      url: 'http://localhost:3000',
     },
     rinkeby: {
       url: `https://rinkeby.infura.io/v3/${RINKEBY_ADDRESS}`,
