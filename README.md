@@ -18,7 +18,11 @@ Functions:
 
 to check this out locally, clone the repo and run:
 
-<p>yarn dev</p>
+```
+
+yarn dev
+
+```
 
 I think this would be a cool idea to see on the mainnet if given the proper time and money. It would use CRUD operations that would trigger post deletions, or awards depending on what other users want.
  
