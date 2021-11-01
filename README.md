@@ -15,6 +15,11 @@ Functions:
 - UpVote
 - DownVote
 - FinalizePost
+
+to check this out locally, clone the repo and run:
+
+<p>yarn dev</p>
+
 I think this would be a cool idea to see on the mainnet if given the proper time and money. It would use CRUD operations that would trigger post deletions, or awards depending on what other users want.
  
  Minimalism in smart contracts is important, so there would be other operations that would be handeled on the client-side first: word count for posts, a shelf life for each post.
